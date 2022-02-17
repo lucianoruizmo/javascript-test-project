@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import Board from './classes/board.js'
 import Card from './classes/card.js'
 import Kanban from './classes/kanban.js'
@@ -5,7 +6,10 @@ import Kanban from './classes/kanban.js'
 let dropOk = false;
 const kanban = new Kanban();
 
-await kanban.loadBoards();
+kanban.loadBoards()
+.then(() => {
+  renderUI();
+});
 
 const container = document.querySelector("#container");
 const newBoardButton = document.querySelector("#new-board-button");
