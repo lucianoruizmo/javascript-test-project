@@ -5,20 +5,7 @@ import Kanban from './classes/kanban.js'
 let dropOk = false;
 const kanban = new Kanban();
 
-const card01 = new Card('Task 1');
-const card02 = new Card('Task 2');
-const card03 = new Card('Task 3');
-const card04 = new Card('Task 4');
-const card05 = new Card('Task 5');
-const card06 = new Card('Task 6');
-
-const board01 = new Board('To Do', [card01, card02]);
-const board02 = new Board('In Progress', [card03, card04]);
-const board03 = new Board('Done', [card05, card06]);
-
-kanban.add(board01);
-kanban.add(board02);
-kanban.add(board03);
+await kanban.loadBoards();
 
 const container = document.querySelector("#container");
 const newBoardButton = document.querySelector("#new-board-button");
